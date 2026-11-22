@@ -1,0 +1,125 @@
+:root {
+  --paper: #ffffff;
+  --ink: #1c2230;
+  --muted: #5a6272;
+  --link: #b31b1b;   /* Cornell Carnelian */
+  --accent: #b31b1b;
+  --rule: #e3e6ea;
+  --max: 60rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14181f;
+    --ink: #e6e8ec;
+    --muted: #9aa2b1;
+    --link: #e8716b;
+    --accent: #e8716b;
+    --rule: #2a303b;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+.site-header {
+  border-top: 4px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+}
+.site-header nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.5rem;
+}
+.site-header .home {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  margin-right: auto;
+}
+.site-header a:not(.home) { color: var(--muted); text-decoration: none; }
+.site-header a:not(.home):hover,
+.site-header a[aria-current="page"] { color: var(--ink); }
+.site-header a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.35em; }
+
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+h1 { font-size: 2.25rem; line-height: 1.15; font-weight: 600; margin: 0 0 1.5rem; }
+h2 { font-size: 1.35rem; font-weight: 600; margin: 2.5rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+
+.accent { color: var(--accent); }
+
+/* Home page: wider two-column layout */
+.name { text-align: center; font-size: 2.75rem; margin-bottom: 2.25rem; }
+.intro { display: flex; gap: 2.75rem; align-items: flex-start; }
+.sidebar { flex: 0 0 17rem; }
+.sidebar img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.interests-heading {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accent);
+  border-top: 0;
+  padding: 0 0 0 0.5rem;
+  margin: 2.1rem 0 0.5rem;
+}
+.interests {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+.interests li { margin: 0 0 0.55rem; }
+.bio { flex: 1; min-width: 0; }
+.intro .bio p:first-child { margin-top: 0; }
+.bio p { line-height: 1.8; }
+.contact { margin-top: 2.5rem; }
+
+.paper { margin: 0 0 1.75rem; }
+.paper .title,
+.course .title { font-weight: 600; }
+.paper .meta { color: var(--muted); font-size: 1rem; margin: 0.15rem 0 0.35rem; }
+.paper details summary { cursor: pointer; color: var(--link); font-size: 1rem; }
+.paper details p { font-size: 1rem; margin: 0.5rem 0 0; }
+
+.course { margin: 0 0 1.5rem; }
+.course .meta { color: var(--muted); font-size: 1rem; margin: 0.15rem 0 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; }
+.course .term { white-space: nowrap; }
+
+footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--rule);
+}
+
+@media (max-width: 36rem) {
+  .intro { flex-direction: column; gap: 1.5rem; }
+  .sidebar { flex: none; width: 100%; max-width: 15rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; }
+}
